@@ -109,17 +109,18 @@ int main(int argc, char **argv) {
 
     while(1){
         double* rt = root(valor, grado, coeff);
-        cout << rt << endl;
+        //cout << rt << endl;
         if(rt[1] == 1){
             cout << "El resultado de la raíz es: " << rt[0] << endl;
+            cout << endl << "===Integrantes===" << endl <<"Matias Munoz" << endl << "Felipe Barrera" << endl << "Joaquin Gomez" << endl << "Mauricio " << endl;
             return exitCode;
         } else {
             cout << "Ninguna raiz encontrada. El Loop paro en el valor: " << rt[0] << endl;
+            cout << endl << "===Integrantes===" << endl <<"Matias Munoz" << endl << "Felipe Barrera" << endl << "Joaquin Gomez" << endl << "Mauricio " << endl;
             return exitCode;
         }
         cout << "Verificacion: " << Verify(rt[0], grado, coeff) << endl;
     }
-
     exitCode = EXIT_SUCCESS;
   }
   return exitCode;
