@@ -47,8 +47,6 @@ Monomio Utils::str2Monomio(std::string texto) {
     if (!texto.empty()) {
         std::string str = texto;
         std::size_t pos = str.find("x");
-
-        //        std::cout << "Texto: " << texto << " Pos: " << pos << std::endl;
         if (pos != std::string::npos) {
             /// Coeficiente
             std::string coefStr = str.substr(0, pos);
