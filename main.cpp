@@ -60,6 +60,7 @@ int main(int argc, char **argv) {
         aux_grado--;
     }
 
+    //Se verifica si es que existe la raíz
     while(1){
         double* rt = root(valor, grado, coeff);
         if(rt[1] == 1){
