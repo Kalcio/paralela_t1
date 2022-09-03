@@ -37,7 +37,6 @@ int main(int argc, char **argv) {
     const double valor = std::atof(argv[2]);
     std::cout << std::endl << "polinomio (cmd): " << polinomio << std::endl;
     std::cout << "Valor: " << valor << std::endl;
-    // std::cout << "polinomio (convertido): ";
     std::vector<Monomio> monomios = Utils::convertir(polinomio);
     std::vector<Monomio>::size_type i = 0;
 
@@ -61,45 +60,17 @@ int main(int argc, char **argv) {
             cout << "Grado real " << aux_grado << endl;
         }
 
-        // if(monomio.GetGrado() == aux_grado) {
         double aux = monomio.GetCoeficiente();
         cout << "Cof " << i << ": " << aux << endl;
         coeff.push_back(aux);
         aux_grado--;
-        // } else {
-        //     double aux2 = monomio.GetCoeficiente();
-        //     cout << "Cof " << i << ": " << aux2 << endl;
-        //     coeff.push_back(0);
-        //     aux_grado--;
-        // }
-        // coeff[i] = monomio.GetCoeficiente();
-        
-        // std::cout << "Coef" << i << ": " << monomio.GetCoeficiente() << std::endl;
-        // std::cout << "Grado" << i << ": " << monomio.GetGrado() << std:: endl;
     }
 
     for(i=0;i < coeff.size();i++){
         std::cout << "Coef " << i << ": " << coeff[i] << std::endl;
     }
 
-    // for(i=0; i<3;i++){
-    //     Monomio monomio = monomios[i];
-    //     double aux = monomio.GetGrado();
-    //     coeff.push_back(aux);
-
-    //     std::cout << "Coef " << i << ": " << coeff[i] << std::endl;
-    // }
-
-    /*
-    for (i = 0; i < monomios.size(); i++) {
-      Monomio monomio = monomios[i];
-      std::cout << monomio.GetCoeficiente() << "x^" << monomio.GetGrado()
-                << " ";
-    }*/
     std::cout << std::endl;
-
-    // double resultado = Utils::evaluar(monomios, valor);
-    // std::cout << "Resultado: " << resultado << std::endl;
 
     cout << "Valores coeff: " << endl;
 
@@ -109,14 +80,13 @@ int main(int argc, char **argv) {
 
     while(1){
         double* rt = root(valor, grado, coeff);
-        //cout << rt << endl;
         if(rt[1] == 1){
             cout << "El resultado de la raíz es: " << rt[0] << endl;
-            cout << endl << "===Integrantes===" << endl <<"Matias Munoz" << endl << "Felipe Barrera" << endl << "Joaquin Gomez" << endl << "Mauricio " << endl;
+            cout << endl << "===Integrantes===" << endl <<"Matias Munoz" << endl << "Felipe Barrera" << endl << "Joaquin Gomez" << endl << "Mauricio Quiroz" << "Dante Caceres" << endl;
             return exitCode;
         } else {
             cout << "Ninguna raiz encontrada. El Loop paro en el valor: " << rt[0] << endl;
-            cout << endl << "===Integrantes===" << endl <<"Matias Munoz" << endl << "Felipe Barrera" << endl << "Joaquin Gomez" << endl << "Mauricio " << endl;
+            cout << endl << "===Integrantes===" << endl <<"Matias Munoz" << endl << "Felipe Barrera" << endl << "Joaquin Gomez" << endl << "Mauricio Quiroz" << "Dante Caceres" << endl;
             return exitCode;
         }
         cout << "Verificacion: " << Verify(rt[0], grado, coeff) << endl;
@@ -126,91 +96,25 @@ int main(int argc, char **argv) {
   return exitCode;
 }
 
-// int vectorCoef(vector<Monomio> monomios, vector<int> coeff){
-//     int i;
-//     for(i=0; i<coeff.size();i++){
-//         Monomio monomio = monomios[i];
-//         int aux = monomio.GetGrado();
-        
-//         int grado = coeff.push_back(aux);
-//         cout << "Coef " << i << ": " << grado << endl;
-//     }
-
-// }
-/*
-string gen_form(double degree)
-{
-    string letters = "abcdefghijklmnopqrstuvwxyz";
-    string poly = "";
-    int i = 0;
-
-    while (degree > 1)
-    {
-        poly = poly + letters[i] + "x^" + to_string(degree) + "+";
-        i++;
-        degree--;
-    }
-    poly = poly + letters[i] + "x+";
-    i++;
-    poly = poly + letters[i];
-
-    return poly;
-}
-*/
-/*
-string polynomial(double degree, vector<double> coeffs)
-{
-    int i = 0;
-    string poly = "";
-    while (degree > 1)
-    {
-        if (coeffs[i] < 0 && i > 0)
-        {
-            poly.erase(poly.length()-1,1);
-        }
-        poly += to_string(coeffs[i]) + "x^" + to_string(degree) + "+";
-        i++;
-        degree--;
-    }
-    if (coeffs[i] < 0 && i > 0)
-    {
-        poly.erase(poly.length()-1,1);
-    }
-    poly += to_string(coeffs[i]) + "x" + "+";
-    i++;
-    if (coeffs[i] < 0 && i > 0)
-    {
-        poly.erase(poly.length()-1,1);
-    }
-    poly += to_string(coeffs[i]);
-    return poly;
-}*/
-
 double p_of_x(double x, double degree, vector<double> coeffs)
 {
-    // cout << "   POFX   " << endl;
     double value = 0;
     int i = 0;
     degree = degree+1;
     while(degree--)
     {
         cout << "Valor " << value << endl;
-        // cout << "Grado: " << degree << endl;
-        // cout << "I: " << i << endl;
-        // cout << "while pofx" << endl;
-        // cout << " Pow " << pow(x,degree) << endl;
         value = value + coeffs[i]*pow(x,degree);
         i++;
     }
-    
-    // cout << "return POFX" << endl;
+
     return value;
 }
 
 
 double derivative(double x, double degree, vector<double> coeffs)
 {
-    // cout << "   derivate   " << endl;
+
     double value = 0;
     int i = 0;
 
@@ -228,28 +132,23 @@ double derivative(double x, double degree, vector<double> coeffs)
 
 double* root(double x, double degree, vector<double> coeffs)
 {
-    // cout << "   root   " << endl;
 
     double* y = new double[2]; 
     for (int i = 0; i < 200; i++)
     {
         double z = p_of_x(x,degree,coeffs);
 
-        if (z > 0.000001 || z < -0.000001)
-        {
-            // cout << "Antes de Derivar " << endl;
+        if (z > 0.000001 || z < -0.000001){
             x = x - (p_of_x(x,degree,coeffs)/derivative(x,degree,coeffs));
         }
         else{
             y[0] = x;
             y[1] = 1;
-            // cout << "retorna root 1 " << endl;
             return y;
         }
     }
     y[0] = x;
     y[1] = 0;
-    // cout << "retorna root 2 " << endl;
     return y;
 }
 
