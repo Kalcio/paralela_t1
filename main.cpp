@@ -22,60 +22,42 @@ double Verify(double x, double degree, vector<double> coeffs);
  */
 int main(int argc, char **argv) {
   int exitCode;
-  std::vector<double> coeff;
+  vector<double> coeff;
 
   /// Si no hay argumentos suficientes mostramos un texto por defecto.
   if (argc != 3) {
-    std::cout
+    cout
         << "Argumentos inválidos, ejecute el programa de la siguiente forma:"
-        << std::endl;
-    std::cout << argv[0] << " \"[integral polinomica]\" [valor]" << std::endl;
+        << endl;
+    cout << argv[0] << " \"[integral polinomica]\" [valor]" << endl;
     exitCode = EXIT_FAILURE;
   } else {
     /// Procesamos
-    const std::string polinomio(argv[1]);
-    const double valor = std::atof(argv[2]);
-    std::cout << std::endl << "polinomio (cmd): " << polinomio << std::endl;
-    std::cout << "Valor: " << valor << std::endl;
-    std::vector<Monomio> monomios = Utils::convertir(polinomio);
-    std::vector<Monomio>::size_type i = 0;
+    const string polinomio(argv[1]);
+    const double valor = atof(argv[2]);
+    cout << endl << "Polinomio: " << polinomio << endl;
+    cout << "Valor inicial: " << valor << endl;
+    vector<Monomio> monomios = Utils::convertir(polinomio);
+    vector<Monomio>::size_type i = 0;
 
-    //Encontrar el primer grado del primer monomio
+    //Obtener el primer grado del primer monomio
     Monomio prim_monomio = monomios[0];
     double grado = prim_monomio.GetGrado();
-    cout << "GRADO " << grado << endl;
 
+    //Se trasladan los datos de coeficiente del vector monomio a un vector coeficiente
     double aux_grado = grado;
     for(i=0; aux_grado >= 0;i++){
         Monomio monomio = monomios[i];
 
-        cout << "Grado monomio " << monomio.GetGrado() << endl;
-        cout << "Grado real " << aux_grado << endl;
-
+        //Genera coeficiente "0" para evitar errores
         while(monomio.GetGrado() < aux_grado){
             coeff.push_back(0);
-            cout << "push" << endl;
             aux_grado--;
-            cout << "Grado monomio " << monomio.GetGrado() << endl;
-            cout << "Grado real " << aux_grado << endl;
         }
 
         double aux = monomio.GetCoeficiente();
-        cout << "Cof " << i << ": " << aux << endl;
         coeff.push_back(aux);
         aux_grado--;
-    }
-
-    for(i=0;i < coeff.size();i++){
-        std::cout << "Coef " << i << ": " << coeff[i] << std::endl;
-    }
-
-    std::cout << std::endl;
-
-    cout << "Valores coeff: " << endl;
-
-    for(i=0; i<coeff.size(); i++){
-        cout << coeff[i] << endl;
     }
 
     while(1){
@@ -103,7 +85,6 @@ double p_of_x(double x, double degree, vector<double> coeffs)
     degree = degree+1;
     while(degree--)
     {
-        cout << "Valor " << value << endl;
         value = value + coeffs[i]*pow(x,degree);
         i++;
     }
