@@ -63,15 +63,14 @@ int main(int argc, char **argv) {
     while(1){
         double* rt = root(valor, grado, coeff);
         if(rt[1] == 1){
-            cout << "El resultado de la raíz es: " << rt[0] << endl;
-            cout << endl << "===Integrantes===" << endl <<"Matias Munoz" << endl << "Felipe Barrera" << endl << "Joaquin Gomez" << endl << "Mauricio Quiroz" << "Dante Caceres" << endl;
+            cout << endl << "La solución es de alrededor de " << rt[0] << endl;
+            cout << endl << "===Integrantes===" << endl <<"Matias Munoz" << endl << "Felipe Barrera" << endl << "Joaquin Gomez" << endl << "Mauricio Quiroz" << endl << "Dante Caceres" << endl;
             return exitCode;
         } else {
             cout << "Ninguna raiz encontrada. El Loop paro en el valor: " << rt[0] << endl;
-            cout << endl << "===Integrantes===" << endl <<"Matias Munoz" << endl << "Felipe Barrera" << endl << "Joaquin Gomez" << endl << "Mauricio Quiroz" << "Dante Caceres" << endl;
+            cout << endl << "===Integrantes===" << endl <<"Matias Munoz" << endl << "Felipe Barrera" << endl << "Joaquin Gomez" << endl << "Mauricio Quiroz" << endl << "Dante Caceres" << endl;
             return exitCode;
         }
-        cout << "Verificacion: " << Verify(rt[0], grado, coeff) << endl;
     }
     exitCode = EXIT_SUCCESS;
   }
@@ -131,12 +130,4 @@ double* root(double x, double degree, vector<double> coeffs)
     y[0] = x;
     y[1] = 0;
     return y;
-}
-
-double Verify(double x, double degree, vector<double> coeffs)
-{
-    double value = p_of_x(x,degree,coeffs);
-    value = (value*1000000)/100000;
-
-    return value;
 }
