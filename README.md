@@ -10,10 +10,10 @@ El programa debe de ser ejecutado en un entorno Linux, para su desarrollo se uti
 
 1. Clonar el repositorio utilizando el método que estime conveniente https://github.com/Kalcio/paralela_t1.git
 2. Abrir la carpeta y abrir en esta la terminal
-3. Escribir y entrar el comando Make
-4. Para la ejecución del programa se debe de ingresar la ruta del archivo, en este caso, "programa" o más específicamente ./programa, seguido del polinomio y el valor inicial, como se muestra en el siguiente ejemplo.
+3. En la terminal ingresar el comando "make".
+4. Para la ejecución del programa se debe de ingresar la ruta del archivo, en este caso "programa" o más específicamente "./programa", seguido del polinomio y el valor inicial, como se muestra en el siguiente ejemplo:
 ```
-./programa x**3+x-1** 2
+./programa x**3+x-1 2
 ```
 5.Una vez ingresados estos datos, presionamos enter y el programa entregará los resultados.
 
